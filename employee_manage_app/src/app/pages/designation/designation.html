@@ -1,0 +1,107 @@
+<div class="container mt-4">
+
+  <!-- Title -->
+  <h4 class="mb-3">Designation Master</h4>
+
+  <!-- FORM -->
+  <div class="card p-3 mb-4 shadow-sm">
+    <form [formGroup]="designationForm">
+      <div class="row align-items-end">
+
+        <!-- Department Dropdown (col-3) -->
+        <div class="col-md-3">
+          <label class="form-label">Department</label>
+          <select class="form-select"
+                  formControlName="departmentId"
+                  name="departmentId">
+            <option value="0">Select Department</option>
+            <option *ngFor="let dept of departmentList"
+                    [value]="dept.departmentId">
+              {{dept.departmentName}}
+            </option>
+          </select>
+        </div>
+
+        <!-- Designation Name (col-3) -->
+        <div class="col-md-3">
+          <label class="form-label">Designation Name</label>
+          <input type="text"
+                 class="form-control"
+                 formControlName="designationName"
+                 name="designationName"
+                 placeholder="Enter designation name">
+        </div>
+
+        <!-- Buttons -->
+        <div class="col-md-4">
+          <button class="btn btn-primary me-2" (click)="onSave()">
+            <i class="fas fa-save"></i>
+            {{designationForm.value.designationId == 0 ? 'Save' : 'Update'}}
+          </button>
+
+          <button class="btn btn-secondary" (click)="resetForm()">
+            <i class="fas fa-undo"></i> Reset
+          </button>
+        </div>
+
+      </div>
+    </form>
+  </div>
+
+  <!-- TABLE -->
+  <div class="card p-3 shadow-sm">
+    <div class="table-responsive">
+
+      <table class="table table-bordered table-hover">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Department</th>
+            <th>Designation Name</th>
+            <th width="120">Action</th>
+          </tr>
+        </thead>
+
+        <tbody>
+            @if(this.isloading()) {
+              <tr>
+                <td colspan="4" class="text-center">
+                  <div class="spinner-border text-primary" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                  </div>
+                </td>
+              </tr>
+            }
+            @else{
+            <tr *ngFor="let item of $designationList | async; let i = index">
+            <td>{{i + 1}}</td>
+            <td>{{item.departmentName}}</td>
+            <td>{{item.designationName}}</td>
+
+            <td>
+              <button class="btn btn-sm btn-warning me-1"
+                      (click)="onEdit(item)">Edit
+                <i class="fas fa-edit"></i>
+              </button>
+
+              <button class="btn btn-sm btn-danger"
+                      (click)="onDelete(item.designationId)">Delete
+                <i class="fas fa-trash"></i>
+              </button>
+            </td>
+          </tr>
+
+          <tr *ngIf="($designationList | async)?.length === 0">
+            <td colspan="4" class="text-center">No records found</td>
+          </tr>
+
+            }
+
+        </tbody>
+
+      </table>
+
+    </div>
+  </div>
+
+</div>

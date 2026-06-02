@@ -1,0 +1,120 @@
+<!-- Employee Table Card -->
+<div class="card shadow-sm border-0 mt-4">
+
+    <!-- Header -->
+    <div class="card-header bg-white d-flex justify-content-between align-items-center">
+
+        <h5 class="mb-0">
+            <i class="fa-solid fa-users"></i>
+            Employee List
+        </h5>
+
+        <!-- Search -->
+        <div class="w-25">
+            <input type="text" class="form-control" placeholder="Search employee">
+        </div>
+
+    </div>
+
+    <!-- Table -->
+    <div class="card-body">
+
+        <div class="table-responsive">
+
+            <table class="table table-bordered table-hover align-middle">
+
+                <!-- Table Header -->
+                <thead class="table-dark">
+
+                    <tr>
+                        <th>#</th>
+                        <th>Employee Name</th>
+                        <th>Email</th>
+                        <th>Contact</th>
+                        <th>Department</th>
+                        <th>Designation</th>
+                        <th>Role</th>
+                        <th>City</th>
+                        <th>State</th>
+                        <th>Pincode</th>
+                        <th width="160">Action</th>
+                    </tr>
+
+                </thead>
+
+                <!-- Table Body -->
+                <tbody>
+                @for(item of employeeList(); track $index){
+ <tr>
+
+                        <td>{{$index+1}}</td>
+
+                        <td>
+                            <div class="fw-semibold">
+                                {{item.name}}
+                            </div>
+                        </td>
+
+                        <td>{{item.email}}</td>
+
+                        <td>{{item.contact}}</td>
+
+                        <td>
+                            <span class="badge bg-primary">
+                                {{item.departmentName}}
+                            </span>
+                        </td>
+
+                        <td>{{item.designationName}}</td>
+
+                        <td>
+                            <span class="badge bg-success">
+                                {{item.role}}
+                            </span>
+                        </td>
+
+                        <td>{{item.city}}</td>
+
+                        <td>{{item.state}}</td>
+
+                        <td>{{item.pincode}}</td>
+
+                        <td>
+
+                            <button routerLink="/new_employee/{{item.employeeId}}" class="btn btn-sm btn-warning me-1">Edit
+                                <i class="fa-solid fa-pen"></i>
+                            </button>
+
+                            <button class="btn btn-sm btn-danger" (click)="onDelete(item.employeeId)">Delete
+                                <i class="fa-solid fa-trash"></i>
+                            </button>
+
+                        </td>
+
+                    </tr>
+
+                }
+                    <!-- Row 1 -->
+                   
+
+                    <!-- Row 2 -->
+               
+
+                    <!-- Empty State -->
+                    <!--
+                    <tr>
+                        <td colspan="11" class="text-center text-muted">
+                            No employee records found
+                        </td>
+                    </tr>
+                    -->
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</div>

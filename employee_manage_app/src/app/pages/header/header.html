@@ -1,0 +1,66 @@
+<div class="d-flex">
+
+  <!-- Sidebar -->
+  <div [ngClass]="isCollapsed ? 'sidebar collapsed' : 'sidebar'">
+
+    <div class="sidebar-header d-flex justify-content-between align-items-center">
+      <h5 *ngIf="!isCollapsed">Admin</h5>
+      <button class="btn btn-sm btn-light" (click)="toggleSidebar()">
+        <i class="fas" [ngClass]="isCollapsed ? 'fa-bars' : 'fa-times'"></i>
+      </button>
+    </div>
+    @if(loggedEmpData.role == 'HR'){
+    <ul class="nav flex-column mt-3">
+
+      <li class="nav-item">
+        <a routerLink="/dashboard" class="nav-link">
+          <i class="fas fa-home"></i>
+          <span *ngIf="!isCollapsed"> Dashboard</span>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a routerLink="/department" class="nav-link">
+          <i class="fas fa-users"></i>
+          <span *ngIf="!isCollapsed"> Department</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="/new_employee/0" class="nav-link">
+          <i class="fas fa-users"></i>
+          <span *ngIf="!isCollapsed"> New Employee</span>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a routerLink="/employee-list" class="nav-link">
+          <i class="fas fa-users"></i>
+          <span *ngIf="!isCollapsed"> Employees</span>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a routerLink="/designation" class="nav-link">
+          <i class="fas fa-briefcase"></i>
+          <span *ngIf="!isCollapsed"> Designation</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a (click)="logout()" class="nav-link">
+          <i class="fas fa-briefcase"></i>
+          <span *ngIf="!isCollapsed"> Logout</span>
+        </a>
+      </li>
+
+
+    </ul>
+  }
+
+  </div>
+
+  <!-- Main Content -->
+  <div class="content p-3 w-100">
+    <router-outlet></router-outlet>
+  </div>
+
+</div>

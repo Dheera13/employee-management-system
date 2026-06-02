@@ -1,0 +1,144 @@
+<div class="container mt-4 mb-5">
+
+    <!-- Page Title -->
+    <div class="mb-4">
+        <h3>
+            <i class="fa-solid fa-user-tie"></i>
+            Employee Registration
+        </h3>
+        <div class="text-muted" *ngIf="newEmployeeObj.employeeId !== 0">
+            Employee ID: {{ newEmployeeObj.employeeId }}
+        </div>
+    </div>
+
+    <!-- Employee Form -->
+    <div class="card shadow-sm p-4">
+
+        <!-- Personal Information -->
+        <div class="section-title">
+            <i class="fa-solid fa-user"></i>
+            Personal Information
+        </div>
+
+        <div class="row mb-3">
+
+            <div class="col-md-4">
+                <label class="form-label">Employee Name</label>
+                <input type="text" [(ngModel)]="newEmployeeObj.name" placeholder="Enter employee name"
+                    class="form-control">
+            </div>
+
+            <div class="col-md-4">
+                <label class="form-label">Email Address</label>
+                <input type="email" [(ngModel)]="newEmployeeObj.email" placeholder="Enter email" class="form-control">
+            </div>
+
+            <div class="col-md-4">
+                <label class="form-label">Role</label>
+                <select class="form-select" [(ngModel)]="newEmployeeObj.role" name="role">
+                    <option value="">Select Role</option>
+                    <option value="Admin">Admin</option>
+                    <option value="Employee">Employee</option>
+                    <option value="Manager">Manager</option>
+                </select>
+            </div>
+
+        </div>
+
+        <!-- Contact Information -->
+        <div class="section-title mt-4">
+            <i class="fa-solid fa-phone"></i>
+            Contact Information
+        </div>
+
+        <div class="row mb-3">
+
+            <div class="col-md-4">
+                <label class="form-label">Contact Number</label>
+                <input type="text" [(ngModel)]="newEmployeeObj.contact" placeholder="Enter contact number"
+                    class="form-control">
+            </div>
+
+            <div class="col-md-4">
+                <label class="form-label">Alternate Number</label>
+                <input type="text" [(ngModel)]="newEmployeeObj.alternateNbr" placeholder="Enter alternate number"
+                    class="form-control">
+            </div>
+
+            <div class="col-md-4">
+                <label class="form-label">Pincode</label>
+                <input type="text" [(ngModel)]="newEmployeeObj.pincode" placeholder="Enter pincode"
+                    class="form-control">
+            </div>
+
+        </div>
+
+        <!-- Department Information -->
+        <div class="section-title mt-4">
+            <i class="fa-solid fa-building"></i>
+            Department Information
+        </div>
+
+        <div class="row mb-3">
+
+            <div class="col-md-4">
+                <label class="form-label">Designation</label>
+                <select class="form-select" [(ngModel)]="newEmployeeObj.designationId" name="designationId">
+                    <option value="0">Select Designation</option>
+                    <option *ngFor="let d of $designationList | async" [value]="d.designationId">
+                        {{d.departmentName}}-{{d.designationName}}
+                    </option>
+                </select>
+            </div>
+
+        </div>
+
+        <!-- Address Information -->
+        <div class="section-title mt-4">
+            <i class="fa-solid fa-location-dot"></i>
+            Address Information
+        </div>
+
+        <div class="row mb-3">
+
+            <div class="col-md-4">
+                <label class="form-label">City</label>
+                <input type="text" [(ngModel)]="newEmployeeObj.city" placeholder="Enter city" class="form-control">
+            </div>
+
+            <div class="col-md-4">
+                <label class="form-label">State</label>
+                <input type="text" [(ngModel)]="newEmployeeObj.state" placeholder="Enter state" class="form-control">
+            </div>
+
+            <div class="col-md-4">
+                <label class="form-label">Address</label>
+                <textarea rows="1" [(ngModel)]="newEmployeeObj.address" placeholder="Enter address"
+                    class="form-control"></textarea>
+            </div>
+
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="text-end mt-4">
+            @if (newEmployeeObj.employeeId == 0) {
+                <button class="btn btn-primary me-2" (click)="saveEmployee()">
+                    <i class="fa-solid fa-floppy-disk"></i>
+                    Save
+                </button>
+            } @else {
+                <button class="btn btn-success me-2" (click)="saveEmployee()">
+                    <i class="fa-solid fa-plus"></i>Update
+                </button>
+            }
+
+            <button class="btn btn-secondary" (click)="resetForm()">
+                <i class="fa-solid fa-rotate-left"></i>
+                Reset
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
