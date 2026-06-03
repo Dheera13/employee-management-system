@@ -14,6 +14,11 @@ namespace EmployeeApi.Controllers
         {
             _context = context;
         }
+        [HttpGet("test")]
+        public IActionResult Test()
+        {
+            return Ok("API Working");
+        }
         [HttpGet("GetAllDepartment")]
         public IActionResult GetAllDepartment()
         {

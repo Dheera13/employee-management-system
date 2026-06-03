@@ -29,7 +29,7 @@ builder.Services.AddCors(options =>
                   .AllowAnyMethod();
         });
 });
-//builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen();
 builder.Services.AddAuthentication(options =>
 {
     options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -64,10 +64,11 @@ var app = builder.Build();
 //}
 
 app.UseHttpsRedirection();
-app.UseCors("enableALl");
 app.UseCors("AllowAngular");
 app.UseAuthentication();
 app.UseAuthorization();
+app.UseSwagger();
+app.UseSwaggerUI();
 
 app.MapControllers();
 
