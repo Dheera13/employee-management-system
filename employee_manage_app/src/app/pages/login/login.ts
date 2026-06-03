@@ -19,7 +19,7 @@ export class Login {
   router = inject(Router);
 
   onSubmit() {
-    this.http.post('https://localhost:7205/api/Auth/login', this.loginObj).subscribe({
+    this.http.post('https://employeeapi2026-fvgxc5cxf7f9d6ep.centralus-01.azurewebsites.net/api/Auth/login', this.loginObj).subscribe({
       next: (result: any) => {
         console.log(result);
          const user = result?.data ?? result;

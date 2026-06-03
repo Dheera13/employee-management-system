@@ -8,7 +8,7 @@ import { Employeemodel, IEmployeeList } from '../models/Employeemodel';
   providedIn: 'root',
 })
 export class EmployeeService {
-  apiUrl: string = 'https://localhost:7205/api';
+  apiUrl: string = 'https://employeeapi2026-fvgxc5cxf7f9d6ep.centralus-01.azurewebsites.net/api';
 
   http = inject(HttpClient);
 
