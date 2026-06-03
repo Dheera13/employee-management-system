@@ -24,7 +24,8 @@ builder.Services.AddCors(options =>
     options.AddPolicy("AllowAngular",
         policy =>
         {
-            policy.WithOrigins("http://localhost:4200")
+            policy.WithOrigins("http://localhost:4200",
+                               "https://nice-cliff-0873fad10.7.azurestaticapps.net")
                   .AllowAnyHeader()
                   .AllowAnyMethod();
         });
