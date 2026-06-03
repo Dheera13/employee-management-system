@@ -19,7 +19,7 @@ namespace EmployeeApi.Model
         public string email { get; set; } = string.Empty;
         public string state { get; set; } = string.Empty;
         public string pincode { get; set; } = string.Empty;
-        public string alternateNbr { get; set; } = string.Empty;
+        public string? alternateNbr { get; set; }
         public string address { get; set; } = string.Empty;
         public DateTime? createdDate { get; set; }
         public DateTime? modifiedDate { get; set; }
