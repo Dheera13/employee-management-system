@@ -3,12 +3,18 @@ name: Azure Static Web Apps CI/CD
 on:
   push:
     branches:
+      - main
+    paths:
       - 'employee_manage_app/**'
+      - '.github/workflows/azure-static-web-apps-nice-cliff-0873fad10.yml'
    
   pull_request:
     types: [opened, synchronize, reopened, closed]
     branches:
+      - main
+    paths:
       - 'employee_manage_app/**'
+      - '.github/workflows/azure-static-web-apps-nice-cliff-0873fad10.yml'
   workflow_dispatch:
 
 jobs:
