@@ -6,7 +6,7 @@ name: Build and deploy ASP.Net Core app to Azure Web App - EmployeeApi2026
 on:
   push:
     branches:
-      - main
+      - 'EmployeeApi/**'
   workflow_dispatch:
 
 jobs:
