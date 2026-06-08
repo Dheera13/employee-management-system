@@ -8,8 +8,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class Master {
-  //apiUrl: string = 'https://employeeapi2026-fvgxc5cxf7f9d6ep.centralus-01.azurewebsites.net/api';
-  apiUrl: string = 'http://localhost:5162/api';
+  apiUrl: string = 'https://employeeapi2026-fvgxc5cxf7f9d6ep.centralus-01.azurewebsites.net/api';
+  //apiUrl: string = 'http://localhost:5162/api';
   http = inject(HttpClient);
 
   getAllDepartments() {
