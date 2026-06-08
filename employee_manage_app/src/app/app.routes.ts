@@ -6,6 +6,7 @@ import { Department } from './pages/department/department';
 import { Designation } from './pages/designation/designation';
 import { EmployeeList } from './pages/employee-list/employee-list';
 import { Employeeform } from './pages/employeeform/employeeform';
+import { AiAssistantComponent } from './pages/ai-assistant/ai-assistant';
 
 export const routes: Routes = [
     {
@@ -40,6 +41,10 @@ export const routes: Routes = [
             {
                 path:'designation',
                 component:Designation
+            },
+            {
+                 path: 'ai-assistant', 
+                 component: AiAssistantComponent 
             }
 
         ]

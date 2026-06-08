@@ -45,6 +45,14 @@
           <span *ngIf="!isCollapsed"> Designation</span>
         </a>
       </li>
+      
+      <li class="nav-item">
+        <a routerLink="/ai-assistant" class="nav-link">
+          <i class="fas fa-briefcase"></i>
+          <span *ngIf="!isCollapsed"> AI Assistant</span>
+        </a>
+      </li>
+
       <li class="nav-item">
         <a (click)="logout()" class="nav-link">
           <i class="fas fa-briefcase"></i>
@@ -52,7 +60,7 @@
         </a>
       </li>
 
-
+    
     </ul>
   }
 

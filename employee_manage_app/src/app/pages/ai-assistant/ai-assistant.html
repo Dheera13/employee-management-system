@@ -1,0 +1,22 @@
+<div class="ai-container">
+  <h2>AI HR Assistant</h2>
+
+  <p>Ask questions about employees, cities, and roles.</p>
+
+  <textarea
+    [(ngModel)]="question"
+    placeholder="Example: How many employees are there?"
+    rows="4">
+  </textarea>
+
+  <br />
+
+  <button (click)="askQuestion()" [disabled]="loading">
+    {{ loading ? 'Thinking...' : 'Ask AI' }}
+  </button>
+
+  <div *ngIf="answer" class="answer-box">
+    <h3>Answer</h3>
+    <p>{{ answer }}</p>
+  </div>
+</div>
