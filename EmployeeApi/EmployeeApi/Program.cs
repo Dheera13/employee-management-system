@@ -53,6 +53,7 @@ builder.Services.AddAuthentication(options =>
 
     };
 });
+builder.Services.AddHttpClient();
 builder.Services.AddAuthorization();
 
 var app = builder.Build();
