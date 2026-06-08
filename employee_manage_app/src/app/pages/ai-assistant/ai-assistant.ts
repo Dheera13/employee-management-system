@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component,ChangeDetectorRef  } from '@angular/core';
 import { Master } from '../../services/master';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+
 
 @Component({
   selector: 'app-ai-assistant',
@@ -15,7 +16,8 @@ export class AiAssistantComponent {
   answer: string = '';
   loading: boolean = false;
 
-  constructor(private masterService: Master) {}
+  constructor(private masterService: Master,   private cdr: ChangeDetectorRef
+) {}
 
   askQuestion() {
     if (!this.question.trim()) {
@@ -29,11 +31,13 @@ export class AiAssistantComponent {
       next: (res) => {
         this.answer = res.answer;
         this.loading = false;
+        this.cdr.detectChanges(); // Manually trigger change detection
       },
       error: (err) => {
         console.error(err);
         this.answer = 'AI Assistant failed. Please try again.';
         this.loading = false;
+        this.cdr.detectChanges(); // Manually trigger change detection
       }
     });
   }
