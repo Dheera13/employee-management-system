@@ -123,7 +123,7 @@ Employee Management System
 │     ├── Azure OpenAI Integration
 │     └── REST APIs
 │
-├── EmployeeAdmin
+├── employee_manage_app
 │     ├── Angular Components
 │     ├── Services
 │     ├── Authentication
